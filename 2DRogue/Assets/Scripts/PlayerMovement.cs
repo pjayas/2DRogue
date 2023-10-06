@@ -51,6 +51,5 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("xDir", direction.x);
         animator.SetFloat("yDir", direction.y);
-        print(animator.GetFloat("xdir"));
     }
 }
