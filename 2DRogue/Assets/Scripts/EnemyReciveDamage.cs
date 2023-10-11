@@ -4,13 +4,38 @@ using UnityEngine;
 
 public class EnemyReciveDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float health;
+    public float maxHealth;
+
     void Start()
     {
-        
+        health = maxHealth;
     }
 
-    // Update is called once per frame
+    public void DealDamage(float damage)
+    {
+        health -= damage;
+
+        checkDeath();
+    }
+
+    private void checkOverheal()
+    {
+        if(health>maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    private void checkDeath()
+    {
+        if (health<0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
     void Update()
     {
         
