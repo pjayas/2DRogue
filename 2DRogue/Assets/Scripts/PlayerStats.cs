@@ -1,56 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyReciveDamage : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats playerStats;
+
+    public GameObject player;
     public float health;
     public float maxHealth;
 
-    public GameObject healthBar;
-    public Slider helthBarSlider;
-
     void Start()
     {
-        health = maxHealth;
+        if(playerStats != null)
+        {
+            Destroy(playerStats);
+        }
+        else
+        {
+            playerStats = this;
+        }
+        DontDestroyOnLoad(this);
     }
 
     public void DealDamage(float damage)
     {
-        healthBar.SetActive(true);
-       
         health -= damage;
 
         checkDeath();
-        helthBarSlider.value = CalculateHealthPercentage();
     }
     public void HealCharacter(float heal)
     {
         health += heal;
         checkOverheal();
-        helthBarSlider.value = CalculateHealthPercentage();
     }
     private void checkOverheal()
     {
-        if(health>maxHealth)
+        if (health > maxHealth)
         {
             health = maxHealth;
         }
-
     }
 
     private void checkDeath()
     {
-        if (health<0)
+        if (health < 0)
         {
-            Destroy(gameObject);
+            Destroy(player);
         }
 
     }
 
-    private float CalculateHealthPercentage()
+    void Update()
     {
-        return (health / maxHealth);
-    }    
+
+    }
+
 }
