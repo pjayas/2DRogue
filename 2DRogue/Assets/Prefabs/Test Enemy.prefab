@@ -662,4 +662,4 @@ MonoBehaviour:
   minDamage: 5
   maxDamage: 10
   projectileForce: 3
-  cooldown: 0.5
+  cooldown: 1
