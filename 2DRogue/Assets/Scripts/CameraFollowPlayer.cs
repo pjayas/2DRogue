@@ -6,9 +6,11 @@ public class CameraFollowPlayer : MonoBehaviour
 {
     public Transform player;
     public float smoothing;
+    public Vector3 offset;
 
-     void Update()
+
+     void FixedUpdate()
     {
-        transform.position = player.position;   
+        transform.position = player.position+ offset;   
     }
 }
