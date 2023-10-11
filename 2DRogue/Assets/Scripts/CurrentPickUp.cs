@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class CurrentPickUp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public enum Pickupobject  {COIN,GEM };
+    public Pickupobject currentobject;
+    public int pickupQuantity;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.name == "Player")
+        {
+            if (currentobject == Pickupobject.COIN)
+            {
+                PlayerStats.playerStats.coins += pickupQuantity;
+
+            }
+            else if (currentobject ==Pickupobject.GEM)
+            {
+                PlayerStats.playerStats.gems += pickupQuantity;
+
+            }
+            Destroy(gameObject);
+        }
     }
 }

@@ -11,6 +11,8 @@ public class EnemyReciveDamage : MonoBehaviour
     public GameObject healthBar;
     public Slider helthBarSlider;
 
+    public GameObject lootDrop;
+
     void Start()
     {
         health = maxHealth;
@@ -45,6 +47,7 @@ public class EnemyReciveDamage : MonoBehaviour
         if (health<0)
         {
             Destroy(gameObject);
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
 
     }
