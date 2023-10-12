@@ -1,7 +1,7 @@
 # 2DRogue 박종수
 CameraFollowPlayer.cs : 이 스크립트는 FixedUpdate에서 플레이어를 따라가는 카메라의 동작을 구현하고 있습니다. 카메라는 주기적으로 플레이어의 위치를 확인하고 부드럽게 이동하여 따라갑니다.
 
-CurrentPickUp.cs : PlayerStats 클래스의 코인 또는 젬을 늘리는 코드
+CurrentPickUp.cs : PlayerStats 클래스의 코인 또는 보석을 늘리는 코드
 
 Enemy.cs : 적 캐릭터(Enemy)를 관리
 
