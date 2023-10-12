@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestEnemyShooting : MonoBehaviour
+public class TestEnemyShooting : EnemyAttack
 {
     public GameObject projectile;
-
-    private GameObject player;
     public float minDamage;
     public float maxDamage;
     public float projectileForce;
     public float cooldown;
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         StartCoroutine(ShootPlayer());
-        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     IEnumerator  ShootPlayer()
@@ -30,8 +28,6 @@ public class TestEnemyShooting : MonoBehaviour
                 spell.GetComponent<Rigidbody2D>().velocity = direction* projectileForce;
                 spell.GetComponent<TestEnemyProjectile>().damage = Random.Range(minDamage, maxDamage);
                 StartCoroutine(ShootPlayer());
-
-
             }
     }
 }

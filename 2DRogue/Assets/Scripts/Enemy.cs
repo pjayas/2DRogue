@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyReciveDamage : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float health;
     public float maxHealth;
@@ -20,10 +20,8 @@ public class EnemyReciveDamage : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        healthBar.SetActive(true);
-       
+        healthBar.SetActive(true);  
         health -= damage;
-
         checkDeath();
         helthBarSlider.value = CalculateHealthPercentage();
     }
@@ -33,13 +31,13 @@ public class EnemyReciveDamage : MonoBehaviour
         checkOverheal();
         helthBarSlider.value = CalculateHealthPercentage();
     }
+
     private void checkOverheal()
     {
         if(health>maxHealth)
         {
             health = maxHealth;
         }
-
     }
 
     private void checkDeath()
@@ -49,7 +47,6 @@ public class EnemyReciveDamage : MonoBehaviour
             Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
-
     }
 
     private float CalculateHealthPercentage()
