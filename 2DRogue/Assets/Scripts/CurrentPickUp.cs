@@ -12,16 +12,17 @@ public class CurrentPickUp : MonoBehaviour
     {
         if(other.name == "Player")
         {
-            if (currentobject == Pickupobject.COIN)
-            {
-                PlayerStats.playerStats.coins += pickupQuantity;
+            //if (currentobject == Pickupobject.COIN)
+            //{
+            //    PlayerStats.playerStats.coins += pickupQuantity;
 
-            }
-            else if (currentobject ==Pickupobject.GEM)
-            {
-                PlayerStats.playerStats.gems += pickupQuantity;
+            //}
+            //else if (currentobject ==Pickupobject.GEM)
+            //{
+            //    PlayerStats.playerStats.gems += pickupQuantity;
 
-            }
+            //}
+            PlayerStats.playerStats.AddCurrency(this);
             Destroy(gameObject);
         }
     }
